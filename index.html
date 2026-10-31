@@ -1,122 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Paperboy Arcade</title>
+
 <style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial;
-  background: #eeeeee;
-  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #fff9e9;
+  color: #111;
 }
+
+/* TOP NAVIGATION */
+.menu {
+text-align: center;
+padding: 0;
+}
+.menu-item {
+display: inline-block;
+margin: 0 10px;
+}
+
+.menu-item a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #7F7F7F;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.menu-item a:hover {
+background-color: gray;
+}
+
+
+/*Classes/selectors for menu buttons and design*/
+.menu {
+text-align: center;
+padding: 0;
+}
+.menu-item {
+display: inline-block;
+margin: 0 10px;
+}
+.menu-item a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #E8210E;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.menu-item a:hover {
+background-color: gray;
+}
+
 header {
-  background: #2463a0;
-  color: white;
-  padding: 20px;
+  background: #7F7F7F;
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+  gap: 20px;
+  flex-wrap: wrap;
 }
+
+.logo {
+  font-size: 37px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 3px 3px black;
+}
+
 nav {
-  background: #173e67;
-  padding: 15px;
+  background: #7F7F7F;
+  border-radius: 9px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
 }
+
 nav a {
+  padding: 13px 18px;
   color: white;
-  margin: 15px;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
 }
-main {
-  padding: 35px;
-}
-h1 {
-  color: #2463a0;
-  font-size: 45px;
-}
-.bike {
-  font-size: 100px;
-}
-.box {
-  display: inline-block;
-  background: #2463a0;
-  color: white;
-  padding: 25px;
-  margin: 10px;
-  width: 140px;
+
+nav a:hover,
+nav a.active {
+  background: #E8210E;
   border-radius: 8px;
 }
-.box a {
+
+/* PAPERBOY BANNER */
+.banner {
+  position: relative;
+  background: #2489b7;
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+.click-area {
+  position: absolute;
+  left: 44%;
+  top: 64%;
+  width: 23%;
+  height: 21%;
+}
+
+/* WELCOME SECTION */
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 4%;
+  background-color: #7F7F7F;
+}
+
+.welcome-text {
+  flex: 1.25;
+}
+
+h1 {
+  font-size: 40px;
+  margin: -8px 0 10px;
+  border-bottom: 4px solid #E8210E;
+  padding-bottom: 9px;
+}
+
+.welcome p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.newspaper {
+  width: 22%;
+  max-width: 240px;
+  flex-shrink: 0;
+}
+
+/* FOUR GAME BUTTONS */
+.shortcuts {
+  background: #652A0E;
+  color: brown;
+  border-radius: 11px;
+  padding: 13px;
+  flex: 1;
+  min-width: 310px;
+  text-align: center;
+}
+
+.shortcuts h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.shortcut-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.shortcut-links a {
   color: white;
   text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
 }
-footer {
-  background: #173e67;
+
+.shortcut-links span {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+
+.banner {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ 
+/* MEET OUR TEAM */
+.team {
+  background: #7F7F7F; !important;
+  padding: 12px 2.5% 22px;
+}
+
+.team h2 {
+  color: #E8210E;
+  font-size: 25px;
+}
+
+.members {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.member {
+  background: #fff8e7;
+  border: 3px solid #172536;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  min-height: 155px;
+}
+
+.member p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.member.expanded p {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  overflow: visible !important;
+}
+
+.read-more {
+  background: #E8210E;
   color: white;
-  padding: 15px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.member img,
+.photo {
+  width: 80px;
+  height: 115px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #ddd9ce;
+  border: 2px solid #222;
+  border-radius: 4px;
+}
+
+.photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.member h3 {
+  font-size: 15px;
+  margin: 0 0 7px;
+}
+
+.member p {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.member a {
+  background: #f13544;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* OTHER SECTIONS */
+.extra {
+  padding: 26px 5%;
+  background: #fff9e9;
+}
+
+.extra h2 {
+  color: #073967;
+}
+
+footer {
+  background: #062746;
+  text-align: center;
+  color: white;
+  padding: 17px;
+  font-size: 12px;
+}
+
+/* MOBILE LAYOUT */
+@media (max-width: 950px) {
+  .welcome {
+    flex-wrap: wrap;
+  }
+
+  .shortcuts {
+    flex-basis: 100%;
+  }
+
+  .members {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 9px;
+  }
+
+  .welcome {
+    display: block;
+  }
+
+  .newspaper {
+    display: none;
+  }
+
+  .shortcuts {
+    min-width: 0;
+  }
+
+  .members {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h2>📰 PAPERBOY ARCADE</h2>
+<!-- TOP HEADER -->
+<header id="home">
+  <div class="logo">PAPERBOY 📰</div>
+
+ <nav>
+<ul class="menu">
+<li class="menu-item"><a href="index.html">Home</a></li>
+<li class="menu-item"><a href="history.html">History</a></li>
+<li class="menu-item"><a href="how_to_play.html">How to Play</a></li>
+<li class="menu-item"><a href="nostalgia_fun_facts.html">Nostalgia/Fun Facts</a></li>
+<li class="menu-item"><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
 </header>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#history">History</a>
-<a href="#play">How to Play</a>
-<a href="#facts">Fun Facts</a>
-</nav>
+<!-- PAPERBOY GAME BANNER -->
+<div class="banner">
+  <img src="pape.jpg" alt="Paperboy Arcade">
 
-<main id="home">
-<h1>WELCOME TO PAPERBOY!</h1>
-<p>Deliver newspapers, ride your bike, and avoid obstacles!</p>
-
-<div class="bike">🚴</div>
-
-<h2>Explore Our Website</h2>
-
-<div class="box">
-<a href="#history">📖 History</a>
+  <a class="click-area"
+     href="#play"
+     aria-label="Explore the Game"></a>
 </div>
 
-<div class="box">
-<a href="#play">🎮 How to Play</a>
-</div>
+<!-- WELCOME TO PAPERBOY -->
+<section class="welcome">
 
-<div class="box">
-<a href="#facts">⭐ Fun Facts</a>
-</div>
+  <div class="welcome-text">
+    <h1>WELCOME TO PAPERBOY!</h1>
 
-<div class="box">
-<a href="#contact">✉️ Contact</a>
-</div>
+    <p>
+      Step into the world of Paperboy,
+      the classic arcade game where you
+      deliver newspapers, dodge obstacles,
+      and try to get the highest score.
+      Our website explores the history,
+      gameplay, and nostalgia behind
+      this iconic game.
+    </p>
+  </div>
 
-<section id="history">
-<h2>Game History</h2>
-<p>Paperboy is a classic arcade game released in 1985.</p>
+  <!-- NEWSPAPER PICTURE -->
+  <img class="newspaper"
+       src="paperboy.jpg"
+       alt="Paperboy Newspaper"
+       style="width: 400px; max-width: 100%; height: auto; margin-left: 50px;">
+     
+
+ 
 </section>
 
-<section id="play">
-<h2>How to Play</h2>
-<p>Ride your bike, deliver newspapers, and avoid obstacles.</p>
+<!-- MEET OUR TEAM -->
+<section class="team" id="team">
+    <h2>MEET OUR TEAM</h2>
+
+    <h1>JaDarius Tyler</h1>
+<hr>
+<p style="font-size: 16px; line-height: 1.7; text-align: left;">
+<img src="images/jd's_headshot.jfif"
+  alt="Profile Picture"
+  width="300px"
+  height="360px"
+  style="float: left; margin: 0 25px 15px 0; border-radius: 20px;"
+class="floatleft">
+<b>Biography</b><br>
+JaDarius Tyler is a senior, Information Technology scholar concentrating in cybersecurity and data mining at Florida A&M University. He was born and raised in Montgomery, Alabama with his parents, one brother, and extended family. JaDarius chose to attend the number one public HBCU and to initially major in computer science initially but later switch to IT. He chose computer science because of the growing demand for professionals, financial opportunities, and the excitement of learning new skills. JaDarius enjoys growing in his faith, listening to music, working out, and hanging out with friends and family. These have shaped the way JaDarius approaches everyday life as he pursues integrity, humility, intentionality, and excellence in all he does. <br><br>
+
+Throughout his time at Florida A&M University, JaDarius has been privileged to work on group projects such as developing a Roblox game and a spades card game database. These experiences have helped him develop skills in SQL, C++,  UI/UX design, communication, and planning, while also teaching JaDarius the importance of initiative, timeliness, and consistency. He has also had the opportunity to complete two internships: one as a systems engineer intern at Rocket Technology Enterprise in Detroit, Michigan, and another as a state intern with Computer Services at the Alabama Department of Transportation in his hometown. Outside of academics and pursuing his career goals, JaDarius has enjoyed serving youth, FAMU’s campus, and the Tallahassee community through various volunteer efforts. These include serving at his local church’s youth ministry, working as a summer camp counselor at Eagle Lake Day Camp, mentoring a high school student through a local church’s youth program, leading Bible studies on campus through the FAMU Navigators, and volunteering with Habitat for Humanity. Through these experiences, he has learned the significance of kindness, humility, service, and community.<br><br>
+
+Looking toward the future, JaDarius plans to join a corporate IT rotational program to gain experience and discover where he truly wants to establish himself in the technology industry. He hopes to utilize the knowledge and skills gained during his undergraduate experience to add value, demonstrate initiative, and contribute creative problem-solving wherever he works. As JaDarius continues to grow academically and professionally, he plans to combine the skills developed throughout his technology journey with his long-term dream of pursuing real estate development.<br><br>
+<hr>
+</p>
+
+<h1>Canaria Hill</h1>
+<hr>
+<p style="font-size: 16px; line-height: 1.7; text-align: left;">
+<img src="images/nari's_headshot.png"
+  alt="Profile Picture"
+  width="300px"
+  height="360px"
+  style="float: left; margin: 0 25px 15px 0; border-radius: 20px;"
+class="floatleft">
+<b>Biography</b><br>
+Canaria Hill was born on December 26, 2006, at St. Joseph's Hospital in Tampa, Florida. Her parents met at the University of South Florida (USF) in 2005. Her father played football at USF from 2005 to 2006, while her mother attended USF from 2003 to 2007 and earned a bachelor's degree in social work. Her father was born in Thomasville, Georgia, and raised in Monticello, Florida. Her mother was born in Bartow, Florida, and raised in Haines City, Florida.She is an only child on her mother's side and has a younger brother on her father's side. She has always enjoyed spending time with her family because it allows her to continue building strong bonds with the people she loves.<br><br>
+
+Throughout her childhood, she participated in several sports. She began playing softball at four years old and basketball at six. She cheered during fifth and sixth grade, played volleyball in seventh and eighth grade, and ran track from eighth through twelfth grade, participating in numerous relay events. She has always been highly competitive, both in and outside of sports. She is also a hardworking person who is determined to accomplish her goals. She has been a dedicated student since childhood and has never allowed anxiety to discourage her, especially when she knows she has an opportunity to succeed and complete a task. She graduated with high honors, ranking 96th out of 600 students in her class.<br><br>
+
+Throughout high school, she consistently earned a place on the honor roll and was a member of the National Honor Society. After graduating, she received a college scholarship. She also volunteered as a staff member at the Boys & Girls Club for two years. She enjoys working with children because she believes they deserve to have their voices heard. She is currently a sophomore at Florida Agricultural and Mechanical University, where she is majoring in Computer Information Systems.<br><br><br><br><br><br>
+<hr>
+</p>
+
+<h1>Jordan Brown</h1>
+<hr>
+<img src="images/jordan's_headshot.png"
+  alt="Profile Picture"
+  width="300px"
+  height="360px"
+  style="float: left; margin: 0 25px 15px 0; border-radius: 20px;"
+class="floatleft">
+<p styler="font-size: 16px; line-height: 1.7; text-align: left;">
+<b>Biography</b><br>
+Jordan Brown is a junior in college majoring in Information and Technology. He is from Tallahassee, Florida. One thing Jordan does well is communicating and working with others. In his free time, he enjoys listening to music, working out, spending time with his family and friends, and participating in extracurricular activities. He is also interested in technology and learning more about artificial intelligence.<br><br>
+
+Jordan decided to take this course because he wants to learn new skills that can help him succeed in college and prepare for his future career. What motivates him to be in college is his goal of building a successful future for himself and his family. He wants to gain the knowledge and experience needed to reach his goals and create better opportunities for himself.<br><br>
+
+One fun fact about Jordan is that he has experience being involved in a marching band. He enjoys being part of a team and working with others toward a common goal. A website Jordan thinks has good web design is Apple’s website. He likes the website because it is clean, simple, and easy to navigate. It also does a good job of showing its products without making the page feel too crowded.<br><br><br><br><br><br><br><br><br>
+<hr>
+</p>
+
+<h1>Esteria Smith</h1>
+<hr>
+<img src="images/esteria's_headshot.jfif" alt="Profile Picture" width="300px" height="360px" style="float: left; margin: 0 25px 15px 0; border-radius: 20px;"
+class="floatleft">
+<p style="font-size: 16px; line-height: 1.7; text-align: left;">
+<b>Biography</b><br>
+Esteria Smith was born and raised in Panama City, FL. She was born on November 21, 2003. Her parents are John Smith and Tia Wilson (Charles Wilson). She is the youngest of three brothers: Brandon Smith, Anferne Tucker, and Julious Smith. Esteria graduated from Rutherford High School, where she was the captain of both the soccer and softball teams and participated in the Beta Club, Hall of Fame, and the International Baccalaureate program. Some of her hobbies are going to the beach, nature walks, and baking. She also has a strong belief in God and relies on that relationship to make decisions and get through life. Three words to describe Esteria would be caring, dependable, and consistent.<br><br>
+
+Esteria is currently a student at Florida Agricultural and Mechanical University. She is a sophomore, majoring in Computer Information Systems, but was previously a Chemistry Pre-Dental major. Esteria has always had an interest in technology and coding, but was later inspired to pursue a career in the field by the rise of artificial intelligence. This increased interest led her to change her major in her senior year of college. This was an incredible and brave jump to make, but after speaking with others who have worked in and currently work in the field, she knew it was the right decision for her.<br><br>
+
+A few career goals for Esteria are to become either a computer systems analyst or a database administrator, to master C++, SQL, and Python, and to build a strong portfolio. A few of her educational goals are to graduate with honors, pursue her master’s in the same or an adjacent field, and earn her CompTIA A+ certification. In five years, Esteria hopes to be working in a sustainable and lucrative job. She hopes to be in a place where she can have a positive impact on other Black young ladies and create a community of mentorship. For her, giving back to her community is the ultimate goal and a key motivation.<br><br><br><br><br>
+
+</p>
+<hr>
+
+<h1>Mylan Thomas</h1>
+<hr>
+<img src="images/mylan's_headshot.png" alt="Profile Picture" width="300px" height="360px" style="float: left; margin: 0 25px 15px 0; border-radius: 20px;"
+class="floatleft">
+<p style="font-size: 16px; line-height: 1.7; text-align: left;">
+<b>Biography</b><br>
+Mylan Thomas is a student at Florida Agricultural and Mechanical University pursuing a degree in Computer Information Systems. Originally from Palm Beach County, Florida, Mylan chose his field of study because of his growing interest in technology and business, and in how the two can be combined to solve real-world problems. Throughout his college experience, he has focused on developing academically while gaining a clearer understanding of his long-term professional goals. His coursework has introduced him to areas such as programming, web development, mathematics, and business, allowing him to build a diverse academic foundation. He values education because he views college not only as a pathway to a career, but also as an opportunity to become more knowledgeable, disciplined, and prepared for his future.<br><br>
+
+Outside of academics, Mylan has developed interests that allow him to express himself and continue learning. He enjoys reading and has developed an appreciation for several genres, including romance, psychological thrillers, fantasy, and classic literature. Reading has become an important hobby because it allows him to experience different perspectives and become immersed in compelling stories. Mylan is also interested in content creation and has gained experience building an online audience. Through content creation, he has learned the importance of creativity, consistency, communication, and audience understanding. Additionally, he enjoys fashion, movies, music, and spending time with family and friends.<br><br>
+
+Looking toward the future, Mylan plans to build a career that combines business and technology. After earning his bachelor’s degree, he intends to pursue graduate studies while gaining professional experience. He is particularly interested in careers involving information systems, technology, analytics, and business strategy. Over time, he also hopes to explore opportunities involving law and entrepreneurship. Mylan’s long-term goal is to become a well-rounded professional who possesses strong technical skills, business knowledge, leadership abilities, and the confidence to pursue ambitious opportunities. He believes that continued education, professional experience, and personal discipline will help him accomplish those goals.<br><br>
+</p>
+<hr>
 </section>
 
-<section id="facts">
-<h2>Fun Facts</h2>
-<p>Paperboy became famous for its unique bicycle gameplay.</p>
-</section>
+<div class="shortcuts">
+<!-- FOUR GAME LINKS -->
+ 
+    <h2>WHAT YOU'LL FIND</h2>
 
-<section id="contact">
-<h2>Contact Us</h2>
-<p>Welcome to our Paperboy Arcade project!</p>
-</section>
+    <div class="shortcut-links">
 
-</main>
+      <a href="history.html">
+        <span>🎮</span>
+        GAME HISTORY
+      </a>
 
+      <a href="how_to_play.html">
+        <span>📰</span>
+        HOW TO PLAY
+      </a>
+
+      <a href="nostalgia_fun_facts.html">
+        <span>⭐</span>
+        FUN FACTS
+      </a>
+
+      <a href="contact.html">
+        <span>📮</span>
+        CONTACT US
+      </a>
+
+    </div>
+  </div>
+<!-- FOOTER -->
 <footer>
-<p>Paperboy Arcade | 2026</p>
+  © 2026 Paperboy. All rights reserved.
 </footer>
+
+
+ 
 
 </body>
 </html>
-
